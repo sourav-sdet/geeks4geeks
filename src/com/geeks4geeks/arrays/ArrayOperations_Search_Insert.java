@@ -49,7 +49,7 @@ public class ArrayOperations_Search_Insert {
 			//If space is available in the array
 			int index=pos-1; //as index begins from 0 and pos begins from 1
 			
-			//Move all elements from including index and the next ones one position right
+			//Move all elements including index and the next ones one position right
 			for(int i=arr.length-1; i>=index; i++){
 				arr[i+1]=arr[i];
 			}
