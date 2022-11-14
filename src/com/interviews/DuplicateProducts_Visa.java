@@ -1,12 +1,13 @@
 package com.interviews;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-public class DuplicateProducts {
+public class DuplicateProducts_Visa {
 
 	public static void main(String[] args) {
-
 
 		List<String> name=new ArrayList<>();
 		name.add("AA");
@@ -34,30 +35,18 @@ public class DuplicateProducts {
 		
 		int duplicates=duplicateProducts(name,price,weight);
 		System.out.println(duplicates);
-		
-		
-
 	}
 
 	public static int duplicateProducts(List<String> name, List<Integer> price, List<Integer> weight) {
 		
-		
-		List<Item> itemList=new ArrayList<>();
-		
-		for(int i=0; i<name.size(); i++){
-			Item item=new Item(name.get(i), price.get(i), weight.get(i));
-			itemList.add(item);
+		Set<String> uniqueItem=new HashSet<String>();
+		for(int i=0; i< name.size(); i++){
+			uniqueItem.add(name.get(i) + " " + price.get(i) + " " + weight.get(i));
+			
 		}
 		
-		int duplicates=0;
-		for(int i=0; i< itemList.size(); i++){
-			for(int j=i+1; j<itemList.size(); j++){
-			if(itemList.get(i).isDuplicate(itemList.get(j))){
-				duplicates++;
-			}
-			}
-		}
-		return duplicates;
+		return (name.size()-uniqueItem.size());
+		
 	}
 }
 
