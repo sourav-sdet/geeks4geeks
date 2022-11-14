@@ -27,7 +27,8 @@ public class StockBuyAndSell {
 		//Sell a stock when prices are going up and reach a peak point
 		//Find bottom points and peak points
 		//At every bottom point, buy the stock. At every peak point, sell the stock
-		
+		//When prices go up and up, keep on adding differences between consecutive elements and ultimately get the difference between
+		//bottom and top
 		int profit=0;
 		for(int i=1; i<n; i++){
 			if(price[i] > price[i-1]){
