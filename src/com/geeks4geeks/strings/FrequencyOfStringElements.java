@@ -19,9 +19,7 @@ public class FrequencyOfStringElements {
 		//Iterate through count array
 		for(int i=0; i<26; i++){
 			if(count[i] > 0){
-				System.out.print((char)(i+'a')+" "+"-->");
-				System.out.print(count[i]);
-				System.out.println();
+				System.out.println((char)(i+'a')+" "+"-->"+count[i]);
 			}
 		}
 		
