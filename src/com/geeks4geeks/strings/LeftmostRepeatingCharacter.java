@@ -5,7 +5,8 @@ public class LeftmostRepeatingCharacter {
 	public static void main(String[] args) {
 
 		
-		String str="ABCCDDEFF";
+		//String str="ABCCDDEFF";
+		String str="abcd";
 		int result=leftmostRepeating(str);
 		System.out.println(result);
 	}
@@ -22,7 +23,7 @@ public class LeftmostRepeatingCharacter {
 			count[str.charAt(i)]++;
 		}
 		
-		for(int i=0; i<count.length; i++){
+		for(int i=0; i<str.length(); i++){
 			if(count[str.charAt(i)] > 1){
 				return i;
 			}
