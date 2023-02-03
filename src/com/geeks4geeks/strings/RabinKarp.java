@@ -42,7 +42,50 @@ public class RabinKarp {
 		//We do computations under modulo q: as the weighted sum of ASCII Values of character can be large.
 		//We choose q to be a very large prime number to reduce spurious hits
 		
+		int h=1, d=3,q=13;
+		
+		//Compute Hash Function
+		for(int i=1; i<=m-1; i++){
+			h=(h*d) % q;
+		}
+		
+		//Compute p and t(0)
+		int p=0, t=0;
+		for(int i=0; i<m; i++){
+			
+			p=((p*d)+pat.charAt(i)) %q;
+			t=((t*d)+text.charAt(i)) %q;
+		}
+		
+		//Check Spurious Hits
+		for(int i=0; i<=n-m; i++){
+			if(p==t){
+				boolean flag=true;
+				for(int j=0; j<m; j++){
+					if(pat.charAt(j) != text.charAt(i+j)){
+						flag=false;
+						break;
+					}
+				}
+				
+				if(flag==true)
+					System.out.print(i+" ");
+			}
+			
+			//Compute t(i+1) based on t(i)
+			if(i<n-m){
+				
+				t=((d*(t-text.charAt(i) * h) + text.charAt(i+m) %q));
+				if(t<0)
+					t=t+q;
+			}
+		}
+			
 		
 	}
 
 }
+
+   	//Rabin Karp algorithm performs better than Naive Algo in average case.
+	//It performs same as Naive Algo when text="AAAAA" and pat="AAA"
+	//It is widely used in applications where there are multiple patterns to be searched in a text.
