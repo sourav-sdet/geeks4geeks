@@ -16,19 +16,21 @@ public class RabinKarp {
 		//Simple Hash Function- sum of individual character values
 		//Problem: Spurious Hit- Hash Values match, but characters do not match
 		
-		//Computation of hash function will take O(m) time as it involves sum of individual character values.
+		//Computation of hash function will take O(m) time as it involves sum of individual character values in text of window size m.
 		//Use Concept of Rolling Hash- Compute the next hash using previous hash in constant times
-		
+		//Compute next hash of current window by subtracting ASCII value/value of first character of previous window and adding ASCII
+		//value/value of last character of current window - ROLLING HASH
 		
 		//Rolling Hash t(i+1)= t(i)  - text(i) + text(i+m)
 		//m= length of pattern
 		//Computation of rolling hash is Big O(1) operation
 		
+		//Simple Hash Function causes many spurious hits when character set is small (Permutation of pattern is present in text)
 		//Weighted Hash Function- Weighted sum of ASCII Values with powers of d
-		//Computation of Rolling Hash for Weighted Hash Function- t(i+1)= d  (t(i) - text(i) * d^m-1) + text(i+m)
+		//Computation of Rolling Hash for Weighted Hash Function- t(i+1)= d * (t(i) - text(i) * d^m-1) + text(i+m)
 		
-		String text="ABABABCABC";
-		String pat="ABC";
+		String text="GEEKS FOR GEEKS";
+		String pat="GEEK";
 		
 		rabinKarb(text,pat, text.length(), pat.length());
 		
@@ -42,9 +44,11 @@ public class RabinKarp {
 		//We do computations under modulo q: as the weighted sum of ASCII Values of character can be large.
 		//We choose q to be a very large prime number to reduce spurious hits
 		
-		int h=1, d=3,q=13;
+		final int d=256;  
+		final int q=101;
 		
-		//Compute Hash Function
+		//Compute d^(m-1) %q
+		int h=1;
 		for(int i=1; i<=m-1; i++){
 			h=(h*d) % q;
 		}
@@ -53,12 +57,12 @@ public class RabinKarp {
 		int p=0, t=0;
 		for(int i=0; i<m; i++){
 			
-			p=((p*d)+pat.charAt(i)) %q;
-			t=((t*d)+text.charAt(i)) %q;
+			p=(p*d+pat.charAt(i)) %q;
+			t=(t*d+text.charAt(i)) %q;
 		}
 		
 		//Check Spurious Hits
-		for(int i=0; i<=n-m; i++){
+		for(int i=0; i<=(n-m); i++){
 			if(p==t){
 				boolean flag=true;
 				for(int j=0; j<m; j++){
@@ -75,9 +79,9 @@ public class RabinKarp {
 			//Compute t(i+1) based on t(i)
 			if(i<n-m){
 				
-				t=((d*(t-text.charAt(i) * h) + text.charAt(i+m) %q));
+				t=((d*(t-text.charAt(i)*h))+text.charAt(i+m))%q;
 				if(t<0)
-					t=t+q;
+					t=t+q;    //when t is negative --> -t % q is equal to  (-t+q) % q
 			}
 		}
 			
@@ -86,6 +90,6 @@ public class RabinKarp {
 
 }
 
-   	//Rabin Karp algorithm performs better than Naive Algo in average case.
+   	//Rabin Karp algorithm performs better than Naive Algo in average case. Time Complexity - 0(n-m+1) * m
 	//It performs same as Naive Algo when text="AAAAA" and pat="AAA"
 	//It is widely used in applications where there are multiple patterns to be searched in a text.
