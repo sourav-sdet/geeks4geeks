@@ -15,7 +15,7 @@ public class IterativeBinarySearch {
 		System.out.println(index);
 		
 		index=binarySearchIterative(arr,8);
-
+		System.out.println(index);
 	}
 
 	public static int binarySearchIterative(int[] arr, int x) {
