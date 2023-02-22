@@ -9,7 +9,12 @@ public class IterativeBinarySearch {
 		//If multiple occurrences are there, return index of any occurrences.
 		
 		
-		//NAIVE SOLUTION- LINEAR SEARCH: doesnot take into account tht the array is sorted
+		//NAIVE SOLUTION- LINEAR SEARCH: doesnot take into account that the array is sorted
+		
+		//Time Complexity: Successful Search O(logn)
+		//Time Complexity: Unsuccessful Search Theta (logn)
+		
+		
 		int arr[]={2,3,4,5,6,7,8,9};
 		int index=linearSearch(arr, 9);
 		System.out.println(index);
