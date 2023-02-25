@@ -7,11 +7,11 @@ public class IndexOfFirstOccurenceInSorted {
 
 		//Given a sorted array, find index of first occurrence of x in the array
 		int arr[]={1,10,10,10,20,20,40};
-		int index=indexFirstOccurence_Naive(arr,10);
+		int index=indexFirstOccurence_Naive(arr,50);
 		System.out.println(index);
 		
 		
-		index=indexFirstOccurence_Efficient(arr,10);
+		index=indexFirstOccurence_Efficient(arr,50);
 		System.out.println(index);
 		
 
@@ -45,7 +45,7 @@ public class IndexOfFirstOccurenceInSorted {
 		}
 		
 		
-		return 0;
+		return -1;
 	}
 
 	public static int indexFirstOccurence_Naive(int[] arr, int x) {
