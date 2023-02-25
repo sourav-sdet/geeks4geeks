@@ -9,10 +9,10 @@ public class Count1sInSortedBinaryArray {
 		//int arr[]={0,1,1,1,1,1,1};
 		int arr[]={0,0,1,1,1};
 		int count=count1s_Naive(arr, arr.length);
-		System.out.println(count);
+		System.out.println("Count of 1s- Naive: "+count);
 		
 		count=count1s_Efficient(arr, arr.length);
-		System.out.println(count);
+		System.out.println("Count of 1s- Efficient: "+count);
 	}
 
 	//Efficient
