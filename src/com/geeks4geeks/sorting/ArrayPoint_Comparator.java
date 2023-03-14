@@ -1,13 +1,13 @@
 package com.geeks4geeks.sorting;
 
-public class PointClass {
+public class ArrayPoint_Comparator {
 	
 		//Sorting Array of Non Primitive (User Defined)
 		
 		int x,y;
 		
 		//Constructor
-		public PointClass(int x, int y){
+		public ArrayPoint_Comparator(int x, int y){
 			this.x=x;
 			this.y=y;
 		}

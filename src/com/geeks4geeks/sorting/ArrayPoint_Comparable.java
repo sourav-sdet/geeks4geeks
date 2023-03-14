@@ -1,6 +1,6 @@
 package com.geeks4geeks.sorting;
 
-public class Point implements Comparable<Point> {
+public class ArrayPoint_Comparable implements Comparable<ArrayPoint_Comparable> {
 
 	//Sorting Array of Non Primitive (User Defined)
 	//This class implements Comparable interface
@@ -8,14 +8,14 @@ public class Point implements Comparable<Point> {
 	int x,y;
 	
 	//Constructor
-	public Point(int x, int y){
+	public ArrayPoint_Comparable(int x, int y){
 		this.x=x;
 		this.y=y;
 	}
 	
 	//Method of Comparable Interface
 	//Sort in increasing order of x co-prdinates
-	public int compareTo(Point P){
+	public int compareTo(ArrayPoint_Comparable P){
 		return this.x-P.x;
 	}
 
