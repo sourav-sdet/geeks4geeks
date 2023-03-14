@@ -20,8 +20,6 @@ public class OverviewOfSortingAlgorithms {
 		//Hybrid Sorting Algorithms - Tim Sort (Insertion + Merge), Intro Sort (Quick+Insertion+Heap)
 		
 		
-		//SORTING IN JAVA
-		
 	}
 
 }
