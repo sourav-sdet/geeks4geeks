@@ -37,7 +37,9 @@ public class AllocateMinimumPages {
 		int low=max, high=sum, res=0;
 		while(low<=high){
 			
+
 			int mid=(low+high)/2;
+
 			if(isFeasible(arr,n,k,mid)) {      //If feasible, go to the left half
 				res=mid;                       //Update the result everytime we see a feasible solution
 				high=mid-1;
