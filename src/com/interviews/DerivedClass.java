@@ -20,12 +20,13 @@ public class DerivedClass extends BaseClass {
 		//DerivedClass dc=new DerivedClass();
 		//dc.start();
 		
-		//BaseClass bc=new DerivedClass();
+		BaseClass bc=new DerivedClass();
+		bc.start();
+		
+		
+		//BaseClass bc=new BaseClass();
 		//bc.start();
 		
-		
-		BaseClass bc=new BaseClass();
-		bc.start();
 		
 
 	}
